@@ -70,10 +70,6 @@ define('peaks', [
        */
       segmentColor: 'rgba(255, 161, 39, 1)',
       /**
-       * Enable/Disable zoomView, enabled by default
-       */
-      zoomView: true,
-      /**
        *
        */
       template: [
@@ -156,10 +152,7 @@ define('peaks', [
     instance.waveform.init(buildUi(instance.container));
 
     instance.on("waveformOverviewReady", function () {
-      if (instance.options.zoomView)
-        instance.waveform.openZoomView();
-      else
-        instance.waveform.initSegments();
+      instance.waveform.openZoomView();
 
       if (instance.options.segments) { // Any initial segments to be displayed?
         instance.segments.addSegment(instance.options.segments);
